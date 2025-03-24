@@ -3,7 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Link Testing Hub</title>
+    <meta name="description" content="Deep Link Testing Hub - Test and verify deep links, Universal Links (AASA), App Links, and URL Schemes for iOS and Android apps. Comprehensive guide for mobile app deep linking, including apple-app-site-association and assetlinks.json validation.">
+    <meta name="keywords" content="deep links, universal links, app links, mobile deep linking, iOS deep links, Android deep links, deep link testing, mobile app deep linking, AASA, apple-app-site-association, assetlinks.json, URL schemes, LSApplicationQueriesSchemes, CFBundleURLTypes, intent filters, AndroidManifest.xml, Info.plist, deep link validation, deep link checker, universal link testing, app link verification">
+    <meta name="author" content="Capgo.app">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Deep Link Testing Hub">
+    <meta property="og:description" content="Test and verify deep links, Universal Links, and App Links for iOS and Android apps. Comprehensive guide for mobile app deep linking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aasa-tester.capgo.app/">
+    <meta property="og:image" content="https://aasa-tester.capgo.app/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Deep Link Testing Hub">
+    <meta name="twitter:description" content="Test and verify deep links, Universal Links, and App Links for iOS and Android apps.">
+    <meta name="twitter:image" content="https://aasa-tester.capgo.app/og-image.png">
+    <link rel="canonical" href="https://aasa-tester.capgo.app/">
+    <title>Deep Link Testing Hub - Test Universal Links & App Links</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Deep Link Testing Hub",
+        "description": "Test and verify deep links, Universal Links, and App Links for iOS and Android apps. Comprehensive guide for mobile app deep linking.",
+        "url": "https://aasa-tester.capgo.app/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Deep Link Testing",
+            "Universal Links Verification",
+            "App Links Testing",
+            "iOS Deep Link Configuration",
+            "Android Deep Link Setup"
+        ]
+    }
+    </script>
     <style>
         :root {
             --primary: #2563eb;
@@ -174,45 +212,105 @@
     <div class="container">
         <header class="header">
             <h1>Deep Link Testing Hub</h1>
-            <a href="#communication" class="scroll-button" onclick="document.querySelector('#communication').scrollIntoView({behavior: 'smooth'}); return false;">
-                Test Deep Links
-            </a>
+            <nav aria-label="Main navigation">
+                <div style="display: flex; gap: 16px; justify-content: center; margin-top: 16px;">
+                    <a href="#communication" class="scroll-button" onclick="document.querySelector('#communication').scrollIntoView({behavior: 'smooth'}); return false;" aria-label="Test Deep Links">
+                        Test Deep Links
+                    </a>
+                    <a href="#domain-checker" class="scroll-button" onclick="document.querySelector('#domain-checker').scrollIntoView({behavior: 'smooth'}); return false;" aria-label="Check Domain">
+                        Check Domain
+                    </a>
+                </div>
+            </nav>
         </header>
 
-        <div class="info-card">
-            <h2>What are Deep Links?</h2>
-            <p>Deep links are special URLs that can open specific content directly in mobile apps. They create seamless connections between websites and mobile applications, allowing users to access specific in-app content directly from web links.</p>
-            
-            <h2 style="margin-top: 24px;">Deep Linking Evolution</h2>
-            <p><strong>Traditional URL Schemes (Old System):</strong><br>
-            The original deep linking method uses custom URL schemes (like "fb://" or "twitter://"). While simple to implement, they have limitations: no fallback if the app isn't installed, potential URL scheme conflicts, and no verification of app ownership.</p>
-            
-            <p><strong>Universal Links & App Links (Current Standard):</strong><br>
-            Modern deep linking uses Universal Links (iOS) and App Links (Android). These systems provide:
-            </p>
-            <ul style="margin-left: 20px; margin-bottom: 16px;">
-                <li>Secure verification of app-website associations</li>
-                <li>Seamless fallback to web content if the app isn't installed</li>
-                <li>Better user experience with no prompts or redirects</li>
-                <li>Protection against URL scheme hijacking</li>
-            </ul>
-            
-            <p><strong>Deferred Deep Linking:</strong><br>
-            This advanced technique allows storing the deep link destination when a user doesn't have the app installed. After installation, the app can automatically navigate to the intended content, creating a smooth user experience.</p>
-            
-            <p><strong>Firebase Dynamic Links:</strong><br>
-            A popular solution that combines the benefits of universal links with additional features like analytics, multi-platform support, and social media optimization.</p>
-        </div>
+        <main>
+            <nav class="info-card" aria-label="Quick navigation">
+                <h2>Quick Navigation</h2>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                        <thead>
+                            <tr style="background: #f1f5f9;">
+                                <th scope="col" style="padding: 12px; text-align: left; border-bottom: 2px solid var(--primary);">What you want to do</th>
+                                <th scope="col" style="padding: 12px; text-align: left; border-bottom: 2px solid var(--primary);">Go to section</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Learn about deep links basics</td>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><a href="#what-are-deep-links" style="color: var(--primary); text-decoration: none;">What are Deep Links?</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Open other apps from your app</td>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><a href="#opening-deep-links" style="color: var(--primary); text-decoration: none;">Opening Deep Links from Your App</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Allow your app to receive deep links</td>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><a href="#receiving-deep-links" style="color: var(--primary); text-decoration: none;">Receiving Deep Links in Your App</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Configure iOS Universal Links</td>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><a href="#ios-universal-links" style="color: var(--primary); text-decoration: none;">iOS Universal Links Configuration</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Configure Android App Links</td>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><a href="#android-app-links" style="color: var(--primary); text-decoration: none;">Android App Links Configuration</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Test deep links</td>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><a href="#communication" style="color: var(--primary); text-decoration: none;">URL Scheme Deep Links</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">Check your Universal Links setup</td>
+                                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;"><a href="#domain-checker" style="color: var(--primary); text-decoration: none;">Universal Link Domain Checker</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </nav>
 
-        <div class="info-card">
-            <h2>iOS Deep Linking Setup</h2>
-            <div style="margin-bottom: 24px;">
-                <h3 style="color: var(--primary); margin-bottom: 16px;">1. Opening Deep Links from Your App</h3>
-                <p>To open other apps from your iOS app:</p>
-                <ol style="margin-left: 20px; margin-bottom: 16px;">
-                    <li>Configure LSApplicationQueriesSchemes in Info.plist:
-                        <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
-                            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code>&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+            <article class="info-card" id="what-are-deep-links">
+                <h2>What are Deep Links?</h2>
+                <p>Deep links are special URLs that can open specific content directly in mobile apps. They create seamless connections between websites and mobile applications, allowing users to access specific in-app content directly from web links.</p>
+                
+                <h2 style="margin-top: 24px;">Deep Linking Approaches</h2>
+                <p>There are two main approaches to deep linking:</p>
+                
+                <h3 style="margin-top: 24px;">1. URL Schemes (Traditional)</h3>
+                <p>URL Schemes are the traditional way to deep link. They are:</p>
+                <ul style="margin-left: 20px; margin-bottom: 16px;">
+                    <li>Easy to implement and test</li>
+                    <li>Work immediately after configuration</li>
+                    <li>No server-side setup required</li>
+                    <li>Limited security (can be hijacked)</li>
+                    <li>No fallback if app isn't installed</li>
+                    <li>May show prompts to users</li>
+                </ul>
+
+                <h3 style="margin-top: 24px;">2. Universal Links/App Links (Modern)</h3>
+                <p>Universal Links (iOS) and App Links (Android) are the modern standard. They are:</p>
+                <ul style="margin-left: 20px; margin-bottom: 16px;">
+                    <li>More secure and verifiable</li>
+                    <li>Seamless fallback to web content</li>
+                    <li>Better user experience (no prompts)</li>
+                    <li>Protected against URL scheme hijacking</li>
+                    <li>Require server-side configuration</li>
+                    <li>May take 24-48 hours to propagate due to caching</li>
+                </ul>
+            </article>
+
+            <article class="info-card">
+                <h2>Deep Linking Setup Guide</h2>
+                
+                <h3 style="margin-top: 24px;" id="opening-deep-links">1. Opening Deep Links from Your App</h3>
+                <p>To open other apps from your app:</p>
+                
+                <div style="margin-bottom: 24px;">
+                    <h4 style="color: var(--primary); margin-bottom: 16px;">iOS Configuration</h4>
+                    <ol style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Configure LSApplicationQueriesSchemes in Info.plist:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-xml">&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
 &lt;array&gt;
     &lt;string&gt;whatsapp&lt;/string&gt;
     &lt;string&gt;telegram&lt;/string&gt;
@@ -225,65 +323,28 @@
     &lt;string&gt;maps&lt;/string&gt;
     &lt;string&gt;waze&lt;/string&gt;
 &lt;/array&gt;</code></pre>
-                        </div>
-                    </li>
-                    <li>Implement the opening code:
-                        <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
-                            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code>// In your Swift code
-func openDeepLink(scheme: String, path: String) {
+                            </div>
+                        </li>
+                        <li>Implement the code:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-swift">func openDeepLink(scheme: String, path: String) {
     if let url = URL(string: "\(scheme)://\(path)") {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }
     }
 }</code></pre>
-                        </div>
-                    </li>
-                </ol>
-            </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
 
-            <div>
-                <h3 style="color: var(--primary); margin-bottom: 16px;">2. Receiving Deep Links in Your App</h3>
-                <p>To receive deep links in your iOS app:</p>
-                <ol style="margin-left: 20px; margin-bottom: 16px;">
-                    <li>Add URL schemes in Xcode:
-                        <ul>
-                            <li>Open your project in Xcode</li>
-                            <li>Select your target</li>
-                            <li>Go to "Info" tab</li>
-                            <li>Add URL schemes in "URL Types"</li>
-                        </ul>
-                    </li>
-                    <li>Configure Universal Links:
-                        <ul>
-                            <li>Create an apple-app-site-association file</li>
-                            <li>Host it at /.well-known/apple-app-site-association</li>
-                            <li>Enable "Associated Domains" capability</li>
-                            <li>Add domain to Associated Domains list</li>
-                        </ul>
-                    </li>
-                    <li>Implement the receiving code:
-                        <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
-                            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code>// In your AppDelegate.swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    // Handle deep link
-    return true
-}</code></pre>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </div>
-
-        <div class="info-card">
-            <h2>Android Deep Linking Setup</h2>
-            <div style="margin-bottom: 24px;">
-                <h3 style="color: var(--primary); margin-bottom: 16px;">1. Opening Deep Links from Your App</h3>
-                <p>To open other apps from your Android app:</p>
-                <ol style="margin-left: 20px; margin-bottom: 16px;">
-                    <li>Add queries to AndroidManifest.xml:
-                        <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
-                            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code>&lt;queries&gt;
+                <div style="margin-bottom: 24px;">
+                    <h4 style="color: var(--primary); margin-bottom: 16px;">Android Configuration</h4>
+                    <ol style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Add queries to AndroidManifest.xml:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-xml">&lt;queries&gt;
     &lt;package android:name="com.whatsapp" /&gt;
     &lt;package android:name="org.telegram.messenger" /&gt;
     &lt;package android:name="com.twitter.android" /&gt;
@@ -295,66 +356,67 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
     &lt;package android:name="com.google.android.apps.maps" /&gt;
     &lt;package android:name="com.waze" /&gt;
 &lt;/queries&gt;</code></pre>
-                        </div>
-                    </li>
-                    <li>Implement the opening code:
-                        <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
-                            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code>// In your Kotlin code
-fun openDeepLink(scheme: String, path: String) {
+                            </div>
+                        </li>
+                        <li>Implement the code:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-kotlin">fun openDeepLink(scheme: String, path: String) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse("$scheme://$path"))
     startActivity(intent)
 }</code></pre>
-                        </div>
-                    </li>
-                </ol>
-            </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
 
-            <div>
-                <h3 style="color: var(--primary); margin-bottom: 16px;">2. Receiving Deep Links in Your App</h3>
-                <p>To receive deep links in your Android app:</p>
-                <ol style="margin-left: 20px; margin-bottom: 16px;">
-                    <li>Configure AndroidManifest.xml:
-                        <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
-                            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code>&lt;activity android:name=".MainActivity"&gt;
+                <h3 style="margin-top: 24px;" id="receiving-deep-links">2. Receiving Deep Links in Your App</h3>
+                <p>To allow your app to receive deep links:</p>
+                
+                <div style="margin-bottom: 24px;">
+                    <h4 style="color: var(--primary); margin-bottom: 16px;">iOS Configuration</h4>
+                    <ol style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Add URL schemes in Xcode:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-xml">&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+&lt;array&gt;
+    &lt;dict&gt;
+        &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;myapp&lt;/string&gt;
+        &lt;/array&gt;
+    &lt;/dict&gt;
+&lt;/array&gt;</code></pre>
+                            </div>
+                        </li>
+                        <li>Implement the code:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-swift">func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    // Handle deep link
+    return true
+}</code></pre>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div style="margin-bottom: 24px;">
+                    <h4 style="color: var(--primary); margin-bottom: 16px;">Android Configuration</h4>
+                    <ol style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Configure intent filters in AndroidManifest.xml:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-xml">&lt;activity android:name=".MainActivity"&gt;
     &lt;intent-filter&gt;
         &lt;action android:name="android.intent.action.VIEW" /&gt;
         &lt;category android:name="android.intent.category.DEFAULT" /&gt;
         &lt;category android:name="android.intent.category.BROWSABLE" /&gt;
-        
-        <!-- Old method: URL scheme -->
         &lt;data android:scheme="myapp" /&gt;
-        
-        <!-- New method: App Links -->
-        &lt;data
-            android:scheme="https"
-            android:host="example.com"
-            android:pathPrefix="/app" /&gt;
     &lt;/intent-filter&gt;
 &lt;/activity&gt;</code></pre>
-                        </div>
-                    </li>
-                    <li>Configure Digital Asset Links:
-                        <ul>
-                            <li>Create assetlinks.json file</li>
-                            <li>Host it at /.well-known/assetlinks.json</li>
-                            <li>Example content:
-                                <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
-                                    <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code>[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.example.app",
-    "sha256_cert_fingerprints": ["YOUR_APP_SIGNING_KEY_SHA256"]
-  }
-}]</code></pre>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Implement the receiving code:
-                        <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
-                            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code>// In your MainActivity.kt
-override fun onCreate(savedInstanceState: Bundle?) {
+                            </div>
+                        </li>
+                        <li>Implement the code:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     handleIntent(intent)
 }
@@ -370,228 +432,586 @@ private fun handleIntent(intent: Intent?) {
         // Handle deep link
     }
 }</code></pre>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
 
-        <section class="section" id="communication">
-            <h3>Communication</h3>
-            <div class="button-grid">
-                <div>
-                    <div class="link-label">tel:+1234567890</div>
-                    <a href="tel:+1234567890" class="deep-link-button">
-                        Phone Call
-                    </a>
+                <h3 style="margin-top: 24px;" id="universal-links">3. Universal Links/App Links (Modern)</h3>
+                <p>Modern deep linking using Universal Links (iOS) and App Links (Android):</p>
+                
+                <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin: 16px 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 8px;">Quick Setup Guide</h4>
+                    <p><strong>Getting your iOS Team ID:</strong></p>
+                    <ol style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Visit <a href="https://developer.apple.com/account" target="_blank">Apple Developer Account</a></li>
+                        <li>Click on "Membership" in the left sidebar</li>
+                        <li>Your Team ID is displayed at the top of the page</li>
+                    </ol>
+                    
+                    <p><strong>Getting your Android SHA-256 Certificate Fingerprint:</strong></p>
+                    <ol style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>For Debug certificate:
+                            <div style="background: #e2e8f0; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-bash"># Debug certificate
+keytool -list -v \
+  -keystore ~/.android/debug.keystore \
+  -alias androiddebugkey \
+  -storepass android \
+  -keypass android</code></pre>
+                                <button onclick="copyToClipboard('keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android')" style="background: var(--primary); color: white; padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px; font-size: 0.875rem;">Copy command</button>
+                            </div>
+                        </li>
+                        <li>For Release certificate:
+                            <div style="background: #e2e8f0; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-bash"># Release certificate
+keytool -list -v \
+  -keystore your-release-key.keystore \
+  -alias your-key-alias</code></pre>
+                                <button onclick="copyToClipboard('keytool -list -v -keystore your-release-key.keystore -alias your-key-alias')" style="background: var(--primary); color: white; padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px; font-size: 0.875rem;">Copy command</button>
+                            </div>
+                        </li>
+                        <li>Look for "SHA256:" in the output</li>
+                    </ol>
                 </div>
-                <div>
-                    <div class="link-label">sms:+1234567890</div>
-                    <a href="sms:+1234567890" class="deep-link-button">
-                        Send SMS
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">mailto:test@example.com?subject=Test&body=Hello</div>
-                    <a href="mailto:test@example.com?subject=Test&body=Hello" class="deep-link-button">
-                        Send Email
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">whatsapp://send?text=Hello</div>
-                    <a href="whatsapp://send?text=Hello" class="deep-link-button">
-                        WhatsApp
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">telegram://resolve?domain=username</div>
-                    <a href="telegram://resolve?domain=username" class="deep-link-button">
-                        Telegram
-                    </a>
-                </div>
-            </div>
-        </section>
 
-        <section class="section">
-            <h3>Social Media</h3>
-            <div class="button-grid">
-                <div>
-                    <div class="link-label">twitter://user?screen_name=twitter</div>
-                    <a href="twitter://user?screen_name=twitter" class="deep-link-button">
-                        Twitter Profile
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">instagram://user?username=instagram</div>
-                    <a href="instagram://user?username=instagram" class="deep-link-button">
-                        Instagram Profile
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">fb://profile/33138223345</div>
-                    <a href="fb://profile/33138223345" class="deep-link-button">
-                        Facebook Profile
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">linkedin://profile</div>
-                    <a href="linkedin://profile" class="deep-link-button">
-                        LinkedIn
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3>Maps & Navigation</h3>
-            <div class="button-grid">
-                <div>
-                    <div class="link-label">geo:37.7749,-122.4194</div>
-                    <a href="geo:37.7749,-122.4194" class="deep-link-button">
-                        Open Coordinates
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">maps://maps.google.com/maps?q=San+Francisco</div>
-                    <a href="maps://maps.google.com/maps?q=San+Francisco" class="deep-link-button">
-                        Google Maps Search
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">waze://?ll=37.7749,-122.4194</div>
-                    <a href="waze://?ll=37.7749,-122.4194" class="deep-link-button">
-                        Waze Navigation
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3>Other Apps</h3>
-            <div class="button-grid">
-                <div>
-                    <div class="link-label">spotify://track/6rqhFgbbKwnb9MLmUQDhG6</div>
-                    <a href="spotify://track/6rqhFgbbKwnb9MLmUQDhG6" class="deep-link-button">
-                        Spotify Track
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">youtube://www.youtube.com/watch?v=dQw4w9WgXcQ</div>
-                    <a href="youtube://www.youtube.com/watch?v=dQw4w9WgXcQ" class="deep-link-button">
-                        YouTube Video
-                    </a>
-                </div>
-                <div>
-                    <div class="link-label">market://details?id=com.example.app</div>
-                    <a href="market://details?id=com.example.app" class="deep-link-button">
-                        Play Store App
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <div class="info-card">
-            <h2>Testing Tips</h2>
-            <p>• Not all deep links may work on every device or platform</p>
-            <p>• Some apps might need to be installed for deep links to work</p>
-            <p>• iOS and Android might handle deep links differently</p>
-            <p>• Custom URL schemes are specific to each app</p>
-        </div>
-
-        <div class="info-card">
-            <h2>Check Deep Link Setup</h2>
-            <p>Enter your domain to verify deep link configuration:</p>
-            <div style="margin-top: 16px;">
-                <input type="text" id="domain" placeholder="example.com" style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px; margin-bottom: 16px;">
-                <button onclick="checkDeepLinkSetup()" style="background: var(--primary); color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Check Setup</button>
-            </div>
-            <div id="checkResults" style="margin-top: 24px;">
                 <div style="margin-bottom: 24px;">
-                    <h3 style="color: var(--primary); margin-bottom: 16px;">iOS Configuration</h3>
-                    <div id="iosResults" style="display: none;">
-                        <div class="check-item">
-                            <span class="check-label">apple-app-site-association:</span>
-                            <span class="check-status" id="iosAasa">Checking...</span>
+                    <h4 style="color: var(--primary); margin-bottom: 16px;" id="ios-universal-links">iOS Universal Links</h4>
+                    <div style="background: #f1f5f9; padding: 16px; border-radius: 4px; margin-bottom: 16px;">
+                        <p style="margin-bottom: 12px;"><strong>Configure your iOS Universal Links:</strong></p>
+                        <div style="display: grid; gap: 12px; margin-bottom: 16px;">
+                            <div>
+                                <label style="display: block; margin-bottom: 4px;">Team ID:</label>
+                                <input type="text" id="iosTeamId" placeholder="ABCDE12345" style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 4px;">Bundle ID:</label>
+                                <input type="text" id="iosBundleId" placeholder="com.example.app" style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 4px;">Domain:</label>
+                                <input type="text" id="iosDomain" placeholder="example.com" style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 4px;">Paths (comma-separated):</label>
+                                <input type="text" id="iosPaths" placeholder="/app/*, /products/*" style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px;">
+                            </div>
                         </div>
-                        <div class="check-item">
-                            <span class="check-label">Content-Type:</span>
-                            <span class="check-status" id="iosContentType">Checking...</span>
-                        </div>
+                        <button onclick="updateIOSConfig()" style="background: var(--primary); color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Update Configuration</button>
                     </div>
+                    <ol style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Create apple-app-site-association file:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-json" id="iosAasaContent">{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAM_ID.com.example.app",
+        "paths": ["/app/*", "/products/*"]
+      }
+    ]
+  }
+}</code></pre>
+                                <button onclick="copyToClipboard(document.getElementById('iosAasaContent').textContent)" style="background: var(--primary); color: white; padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px; font-size: 0.875rem;">Copy configuration</button>
+                            </div>
+                        </li>
+                        <li>Host at <a href="#" id="iosAasaLink" style="color: var(--primary); text-decoration: none;">https://example.com/.well-known/apple-app-site-association</a></li>
+                        <li>Enable Associated Domains capability in Xcode</li>
+                        <li>Add domain to Associated Domains list</li>
+                        <li>
+                            <button onclick="testDomain('ios')" style="background: var(--primary); color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px;">Test Domain</button>
+                        </li>
+                    </ol>
                 </div>
+
                 <div>
-                    <h3 style="color: var(--primary); margin-bottom: 16px;">Android Configuration</h3>
-                    <div id="androidResults" style="display: none;">
-                        <div class="check-item">
-                            <span class="check-label">assetlinks.json:</span>
-                            <span class="check-status" id="androidAssetlinks">Checking...</span>
+                    <h4 style="color: var(--primary); margin-bottom: 16px;" id="android-app-links">Android App Links</h4>
+                    <div style="background: #f1f5f9; padding: 16px; border-radius: 4px; margin-bottom: 16px;">
+                        <p style="margin-bottom: 12px;"><strong>Configure your Android App Links:</strong></p>
+                        <div style="display: grid; gap: 12px; margin-bottom: 16px;">
+                            <div>
+                                <label style="display: block; margin-bottom: 4px;">Package Name:</label>
+                                <input type="text" id="androidPackageName" placeholder="com.example.app" style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 4px;">SHA-256 Fingerprint:</label>
+                                <input type="text" id="androidFingerprint" placeholder="ABCDEF1234567890..." style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 4px;">Domain:</label>
+                                <input type="text" id="androidDomain" placeholder="example.com" style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px;">
+                            </div>
                         </div>
-                        <div class="check-item">
-                            <span class="check-label">Content-Type:</span>
-                            <span class="check-status" id="androidContentType">Checking...</span>
-                        </div>
+                        <button onclick="updateAndroidConfig()" style="background: var(--primary); color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Update Configuration</button>
                     </div>
+                    <ol style="margin-left: 20px; margin-bottom: 16px;">
+                        <li>Create assetlinks.json file:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-json" id="androidAssetlinksContent">[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.app",
+    "sha256_cert_fingerprints": ["YOUR_APP_SIGNING_KEY_SHA256"]
+  }
+}]</code></pre>
+                                <button onclick="copyToClipboard(document.getElementById('androidAssetlinksContent').textContent)" style="background: var(--primary); color: white; padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px; font-size: 0.875rem;">Copy configuration</button>
+                            </div>
+                        </li>
+                        <li>Host at <a href="#" id="androidAssetlinksLink" style="color: var(--primary); text-decoration: none;">https://example.com/.well-known/assetlinks.json</a></li>
+                        <li>Configure AndroidManifest.xml:
+                            <div style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">
+                                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word;"><code class="language-xml" id="androidManifestContent">&lt;activity android:name=".MainActivity"&gt;
+    &lt;intent-filter android:autoVerify="true"&gt;
+        &lt;action android:name="android.intent.action.VIEW" /&gt;
+        &lt;category android:name="android.intent.category.DEFAULT" /&gt;
+        &lt;category android:name="android.intent.category.BROWSABLE" /&gt;
+        &lt;data
+            android:scheme="https"
+            android:host="yourdomain.com"
+            android:pathPrefix="/app" /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;</code></pre>
+                                <button onclick="copyToClipboard(document.getElementById('androidManifestContent').textContent)" style="background: var(--primary); color: white; padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px; font-size: 0.875rem;">Copy configuration</button>
+                            </div>
+                        </li>
+                        <li>
+                            <button onclick="testDomain('android')" style="background: var(--primary); color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px;">Test Domain</button>
+                        </li>
+                    </ol>
                 </div>
             </div>
-        </div>
+            <article class="container info-card" id="communication">
+                <h2>URL Scheme Deep Links</h2>
+                <div class="button-grid">
+                    <div>
+                        <div class="link-label">whatsapp://send?text=Hello</div>
+                        <a href="whatsapp://send?text=Hello" class="deep-link-button">
+                            WhatsApp
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">telegram://resolve?domain=username</div>
+                        <a href="telegram://resolve?domain=username" class="deep-link-button">
+                            Telegram
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">twitter://user?screen_name=twitter</div>
+                        <a href="twitter://user?screen_name=twitter" class="deep-link-button">
+                            Twitter Profile
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">instagram://user?username=instagram</div>
+                        <a href="instagram://user?username=instagram" class="deep-link-button">
+                            Instagram Profile
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">fb://profile/33138223345</div>
+                        <a href="fb://profile/33138223345" class="deep-link-button">
+                            Facebook Profile
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">linkedin://profile</div>
+                        <a href="linkedin://profile" class="deep-link-button">
+                            LinkedIn
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">spotify://track/6rqhFgbbKwnb9MLmUQDhG6</div>
+                        <a href="spotify://track/6rqhFgbbKwnb9MLmUQDhG6" class="deep-link-button">
+                            Spotify Track
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">youtube://www.youtube.com/watch?v=dQw4w9WgXcQ</div>
+                        <a href="youtube://www.youtube.com/watch?v=dQw4w9WgXcQ" class="deep-link-button">
+                            YouTube Video
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">market://details?id=com.example.app</div>
+                        <a href="market://details?id=com.example.app" class="deep-link-button">
+                            Play Store App
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-        <script>
-            async function checkDeepLinkSetup() {
-                const domain = document.getElementById('domain').value.trim();
-                if (!domain) {
-                    alert('Please enter a domain');
-                    return;
-                }
+            <article class="container info-card">
+                <h2>Universal Links (AASA)</h2>
+                <div class="button-grid">
+                    <div>
+                        <div class="link-label">https://example.com/app/product/123</div>
+                        <a href="https://example.com/app/product/123" class="deep-link-button">
+                            Product Page
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">https://example.com/app/profile</div>
+                        <a href="https://example.com/app/profile" class="deep-link-button">
+                            User Profile
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">https://example.com/app/settings</div>
+                        <a href="https://example.com/app/settings" class="deep-link-button">
+                            Settings
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-                // Show results containers
-                document.getElementById('iosResults').style.display = 'block';
-                document.getElementById('androidResults').style.display = 'block';
+            <article class="container info-card">
+                <h2>System Deep Links</h2>
+                <div class="button-grid">
+                    <div>
+                        <div class="link-label">tel:+1234567890</div>
+                        <a href="tel:+1234567890" class="deep-link-button">
+                            Phone Call
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">sms:+1234567890</div>
+                        <a href="sms:+1234567890" class="deep-link-button">
+                            Send SMS
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">mailto:test@example.com?subject=Test&body=Hello</div>
+                        <a href="mailto:test@example.com?subject=Test&body=Hello" class="deep-link-button">
+                            Send Email
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">geo:37.7749,-122.4194</div>
+                        <a href="geo:37.7749,-122.4194" class="deep-link-button">
+                            Open Coordinates
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">maps://maps.google.com/maps?q=San+Francisco</div>
+                        <a href="maps://maps.google.com/maps?q=San+Francisco" class="deep-link-button">
+                            Google Maps Search
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">waze://?ll=37.7749,-122.4194</div>
+                        <a href="waze://?ll=37.7749,-122.4194" class="deep-link-button">
+                            Waze Navigation
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">x-web-search://?q=test</div>
+                        <a href="x-web-search://?q=test" class="deep-link-button">
+                            Web Search
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">settings://</div>
+                        <a href="settings://" class="deep-link-button">
+                            Settings
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">prefs:root=WIFI</div>
+                        <a href="prefs:root=WIFI" class="deep-link-button">
+                            WiFi Settings
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">prefs:root=Bluetooth</div>
+                        <a href="prefs:root=Bluetooth" class="deep-link-button">
+                            Bluetooth Settings
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">prefs:root=NOTIFICATIONS_ID</div>
+                        <a href="prefs:root=NOTIFICATIONS_ID" class="deep-link-button">
+                            Notifications Settings
+                        </a>
+                    </div>
+                    <div>
+                        <div class="link-label">prefs:root=Privacy&path=LOCATION</div>
+                        <a href="prefs:root=Privacy&path=LOCATION" class="deep-link-button">
+                            Location Settings
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-                // Check iOS configuration
-                try {
-                    const aasaResponse = await fetch(`https://${domain}/.well-known/apple-app-site-association`);
-                    const aasaStatus = aasaResponse.ok ? 'success' : 'error';
-                    const aasaText = aasaResponse.ok ? 'Found' : 'Not found';
-                    document.getElementById('iosAasa').className = `check-status ${aasaStatus}`;
-                    document.getElementById('iosAasa').textContent = aasaText;
+            <article class="container info-card">
+                <h2>Testing Tips</h2>
+                <p>• Not all deep links may work on every device or platform</p>
+                <p>• Some apps might need to be installed for deep links to work</p>
+                <p>• iOS and Android might handle deep links differently</p>
+                <p>• Custom URL schemes are specific to each app</p>
+            </article>
 
-                    const contentType = aasaResponse.headers.get('content-type');
-                    const contentTypeStatus = contentType?.includes('application/json') ? 'success' : 'error';
-                    const contentTypeText = contentType || 'Not set';
-                    document.getElementById('iosContentType').className = `check-status ${contentTypeStatus}`;
-                    document.getElementById('iosContentType').textContent = contentTypeText;
-                } catch (error) {
-                    document.getElementById('iosAasa').className = 'check-status error';
-                    document.getElementById('iosAasa').textContent = 'Error checking';
-                    document.getElementById('iosContentType').className = 'check-status error';
-                    document.getElementById('iosContentType').textContent = 'Error checking';
-                }
-
-                // Check Android configuration
-                try {
-                    const assetlinksResponse = await fetch(`https://${domain}/.well-known/assetlinks.json`);
-                    const assetlinksStatus = assetlinksResponse.ok ? 'success' : 'error';
-                    const assetlinksText = assetlinksResponse.ok ? 'Found' : 'Not found';
-                    document.getElementById('androidAssetlinks').className = `check-status ${assetlinksStatus}`;
-                    document.getElementById('androidAssetlinks').textContent = assetlinksText;
-
-                    const contentType = assetlinksResponse.headers.get('content-type');
-                    const contentTypeStatus = contentType?.includes('application/json') ? 'success' : 'error';
-                    const contentTypeText = contentType || 'Not set';
-                    document.getElementById('androidContentType').className = `check-status ${contentTypeStatus}`;
-                    document.getElementById('androidContentType').textContent = contentTypeText;
-                } catch (error) {
-                    document.getElementById('androidAssetlinks').className = 'check-status error';
-                    document.getElementById('androidAssetlinks').textContent = 'Error checking';
-                    document.getElementById('androidContentType').className = 'check-status error';
-                    document.getElementById('androidContentType').textContent = 'Error checking';
-                }
-            }
-        </script>
+            <article class="container info-card" id="domain-checker">
+                <h2>Universal Link Domain Checker</h2>
+                <p>Enter your domain to verify Universal Links configuration:</p>
+                <div style="margin-top: 16px;">
+                    <input type="text" id="domain" placeholder="example.com" style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px; margin-bottom: 16px;">
+                    <button onclick="checkDeepLinkSetup()" style="background: var(--primary); color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Check Setup</button>
+                </div>
+                <div id="checkResults" style="margin-top: 24px;">
+                    <div style="margin-bottom: 24px;">
+                        <h3 style="color: var(--primary); margin-bottom: 16px;">iOS Configuration</h3>
+                        <div id="iosResults" style="display: none;">
+                            <div class="check-item">
+                                <span class="check-label">apple-app-site-association:</span>
+                                <span class="check-status" id="iosAasa">Checking...</span>
+                            </div>
+                            <div class="check-item">
+                                <span class="check-label">Content-Type:</span>
+                                <span class="check-status" id="iosContentType">Checking...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary); margin-bottom: 16px;">Android Configuration</h3>
+                        <div id="androidResults" style="display: none;">
+                            <div class="check-item">
+                                <span class="check-label">assetlinks.json:</span>
+                                <span class="check-status" id="androidAssetlinks">Checking...</span>
+                            </div>
+                            <div class="check-item">
+                                <span class="check-label">Content-Type:</span>
+                                <span class="check-status" id="androidContentType">Checking...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
 
         <footer class="footer">
-            <p>Created by <a href="https://capgo.app/" target="_blank">Capgo.app</a> - The Universal App Update Solution</p>
+            <p>Created by <a href="https://capgo.app/" target="_blank" rel="noopener noreferrer">Capgo.app</a> - The Universal App Update Solution</p>
         </footer>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-swift.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-kotlin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script>
+        async function checkDeepLinkSetup() {
+            const domain = document.getElementById('domain').value.trim();
+            if (!domain) {
+                alert('Please enter a domain');
+                return;
+            }
+
+            // Show results containers
+            document.getElementById('iosResults').style.display = 'block';
+            document.getElementById('androidResults').style.display = 'block';
+
+            // Check iOS configuration
+            try {
+                const aasaResponse = await fetch(`https://${domain}/.well-known/apple-app-site-association`);
+                const aasaStatus = aasaResponse.ok ? 'success' : 'error';
+                const aasaText = aasaResponse.ok ? 'Found' : 'Not found';
+                document.getElementById('iosAasa').className = `check-status ${aasaStatus}`;
+                document.getElementById('iosAasa').textContent = aasaText;
+
+                const contentType = aasaResponse.headers.get('content-type');
+                const contentTypeStatus = contentType?.includes('application/json') ? 'success' : 'error';
+                const contentTypeText = contentType || 'Not set';
+                document.getElementById('iosContentType').className = `check-status ${contentTypeStatus}`;
+                document.getElementById('iosContentType').textContent = contentTypeText;
+
+                if (aasaResponse.ok) {
+                    const aasaContent = await aasaResponse.json();
+                    const aasaValidation = validateAASA(aasaContent);
+                    
+                    // Add new validation results
+                    const validationResults = document.createElement('div');
+                    validationResults.innerHTML = `
+                        <div class="check-item">
+                            <span class="check-label">JSON Format:</span>
+                            <span class="check-status ${aasaValidation.isValidJSON ? 'success' : 'error'}">${aasaValidation.isValidJSON ? 'Valid' : 'Invalid'}</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">App ID Format:</span>
+                            <span class="check-status ${aasaValidation.hasValidAppID ? 'success' : 'error'}">${aasaValidation.hasValidAppID ? 'Valid' : 'Invalid'}</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">Paths Format:</span>
+                            <span class="check-status ${aasaValidation.hasValidPaths ? 'success' : 'error'}">${aasaValidation.hasValidPaths ? 'Valid' : 'Invalid'}</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">Content:</span>
+                            <pre style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">${JSON.stringify(aasaContent, null, 2)}</pre>
+                        </div>
+                    `;
+                    document.getElementById('iosResults').appendChild(validationResults);
+                }
+            } catch (error) {
+                document.getElementById('iosAasa').className = 'check-status error';
+                document.getElementById('iosAasa').textContent = 'Error checking';
+                document.getElementById('iosContentType').className = 'check-status error';
+                document.getElementById('iosContentType').textContent = 'Error checking';
+            }
+
+            // Check Android configuration
+            try {
+                const assetlinksResponse = await fetch(`https://${domain}/.well-known/assetlinks.json`);
+                const assetlinksStatus = assetlinksResponse.ok ? 'success' : 'error';
+                const assetlinksText = assetlinksResponse.ok ? 'Found' : 'Not found';
+                document.getElementById('androidAssetlinks').className = `check-status ${assetlinksStatus}`;
+                document.getElementById('androidAssetlinks').textContent = assetlinksText;
+
+                const contentType = assetlinksResponse.headers.get('content-type');
+                const contentTypeStatus = contentType?.includes('application/json') ? 'success' : 'error';
+                const contentTypeText = contentType || 'Not set';
+                document.getElementById('androidContentType').className = `check-status ${contentTypeStatus}`;
+                document.getElementById('androidContentType').textContent = contentTypeText;
+
+                if (assetlinksResponse.ok) {
+                    const assetlinksContent = await assetlinksResponse.json();
+                    const assetlinksValidation = validateAssetLinks(assetlinksContent);
+                    
+                    // Add new validation results
+                    const validationResults = document.createElement('div');
+                    validationResults.innerHTML = `
+                        <div class="check-item">
+                            <span class="check-label">JSON Format:</span>
+                            <span class="check-status ${assetlinksValidation.isValidJSON ? 'success' : 'error'}">${assetlinksValidation.isValidJSON ? 'Valid' : 'Invalid'}</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">Package Name:</span>
+                            <span class="check-status ${assetlinksValidation.hasValidPackageName ? 'success' : 'error'}">${assetlinksValidation.hasValidPackageName ? 'Valid' : 'Invalid'}</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">SHA256 Fingerprint:</span>
+                            <span class="check-status ${assetlinksValidation.hasValidFingerprint ? 'success' : 'error'}">${assetlinksValidation.hasValidFingerprint ? 'Valid' : 'Invalid'}</span>
+                        </div>
+                        <div class="check-item">
+                            <span class="check-label">Content:</span>
+                            <pre style="background: #f1f5f9; padding: 12px; border-radius: 4px; margin-top: 8px; overflow-x: auto;">${JSON.stringify(assetlinksContent, null, 2)}</pre>
+                        </div>
+                    `;
+                    document.getElementById('androidResults').appendChild(validationResults);
+                }
+            } catch (error) {
+                document.getElementById('androidAssetlinks').className = 'check-status error';
+                document.getElementById('androidAssetlinks').textContent = 'Error checking';
+                document.getElementById('androidContentType').className = 'check-status error';
+                document.getElementById('androidContentType').textContent = 'Error checking';
+            }
+        }
+
+        function validateAASA(content) {
+            return {
+                isValidJSON: typeof content === 'object' && content !== null,
+                hasValidAppID: Array.isArray(content.applinks?.apps) && content.applinks.apps.length > 0 && 
+                             content.applinks.apps.every(app => /^[A-Z0-9]{10}\.[A-Z0-9]{10}$/.test(app)),
+                hasValidPaths: Array.isArray(content.applinks?.details) && content.applinks.details.length > 0 &&
+                             content.applinks.details.every(detail => 
+                                Array.isArray(detail.paths) && detail.paths.length > 0 &&
+                                detail.paths.every(path => typeof path === 'string' && path.length > 0))
+            };
+        }
+
+        function validateAssetLinks(content) {
+            return {
+                isValidJSON: Array.isArray(content) && content.length > 0,
+                hasValidPackageName: content.every(item => 
+                    item.target?.package_name && /^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]$/.test(item.target.package_name)),
+                hasValidFingerprint: content.every(item => 
+                    Array.isArray(item.target?.sha256_cert_fingerprints) && 
+                    item.target.sha256_cert_fingerprints.length > 0 &&
+                    item.target.sha256_cert_fingerprints.every(fp => 
+                        /^[0-9A-F]{64}$/.test(fp)))
+            };
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Command copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        function updateIOSConfig() {
+            const teamId = document.getElementById('iosTeamId').value.trim();
+            const bundleId = document.getElementById('iosBundleId').value.trim();
+            const domain = document.getElementById('iosDomain').value.trim();
+            const paths = document.getElementById('iosPaths').value.split(',').map(p => p.trim());
+
+            const aasaContent = {
+                applinks: {
+                    apps: [],
+                    details: [
+                        {
+                            appID: `${teamId}.${bundleId}`,
+                            paths: paths
+                        }
+                    ]
+                }
+            };
+
+            document.getElementById('iosAasaContent').textContent = JSON.stringify(aasaContent, null, 2);
+            document.getElementById('iosAasaLink').textContent = `https://${domain}/.well-known/apple-app-site-association`;
+            document.getElementById('iosAasaLink').href = `https://${domain}/.well-known/apple-app-site-association`;
+            Prism.highlightAll();
+        }
+
+        function updateAndroidConfig() {
+            const packageName = document.getElementById('androidPackageName').value.trim();
+            const fingerprint = document.getElementById('androidFingerprint').value.trim();
+            const domain = document.getElementById('androidDomain').value.trim();
+
+            const assetlinksContent = [{
+                relation: ["delegate_permission/common.handle_all_urls"],
+                target: {
+                    namespace: "android_app",
+                    package_name: packageName,
+                    sha256_cert_fingerprints: [fingerprint]
+                }
+            }];
+
+            const manifestContent = `<activity android:name=".MainActivity">
+    <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data
+            android:scheme="https"
+            android:host="${domain}"
+            android:pathPrefix="/app" />
+    </intent-filter>
+</activity>`;
+
+            document.getElementById('androidAssetlinksContent').textContent = JSON.stringify(assetlinksContent, null, 2);
+            document.getElementById('androidManifestContent').textContent = manifestContent;
+            document.getElementById('androidAssetlinksLink').textContent = `https://${domain}/.well-known/assetlinks.json`;
+            document.getElementById('androidAssetlinksLink').href = `https://${domain}/.well-known/assetlinks.json`;
+            Prism.highlightAll();
+        }
+
+        function testDomain(platform) {
+            const domain = platform === 'ios' 
+                ? document.getElementById('iosDomain').value.trim()
+                : document.getElementById('androidDomain').value.trim();
+            
+            if (!domain) {
+                alert('Please enter a domain first');
+                return;
+            }
+
+            document.getElementById('domain').value = domain;
+            document.querySelector('#domain-checker').scrollIntoView({behavior: 'smooth'});
+            checkDeepLinkSetup();
+        }
+    </script>
 </body>
 </html>
