@@ -234,6 +234,14 @@
         </header>
 
         <main>
+            <article class="info-card">
+                <h2>About Our AASA & Universal Links Validator</h2>
+                <p>Our AASA & Universal Links Validator is designed to help you confirm your website's readiness for Universal Links. We examine your domain's <code>apple-app-site-association</code> (AASA) file hosting, comparing it against Apple's official guidelines and insights from successful production deployments.</p>
+                <p>Ensuring your AASA file is correctly configured is vital. It's a key factor in delivering a seamless experience for your iOS app users when they interact with your links.</p>
+                <p>What if your AASA file checks out, but Universal Links aren't working as expected? Our validator can also assist in diagnosing issues related to your Xcode project's Universal Links setup.</p>
+                <p>For a more thorough check, you can provide your Apple App Prefix and Bundle Identifier. This allows the validator to verify that these crucial values from your project are accurately reflected in your AASA file.</p>
+                <p>Upon completion, if your <code>apple-app-site-association</code> file meets all criteria, we'll present its content. Otherwise, we'll clearly indicate which specific tests did not pass, or which couldn't be executed due to preceding errors.</p>
+            </article>
             <nav class="info-card" aria-label="Quick navigation">
                 <h2>Quick Navigation</h2>
                 <div style="overflow-x: auto;">
@@ -761,6 +769,7 @@ keytool -list -v \
                     </ol>
             </div>
         </div>
+            </article>
             <article class="container info-card" id="domain-checker">
                 <h2>Universal Link Domain Checker</h2>
                 <p>Enter your domain to verify Universal Links configuration:</p>
