@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Deep Link Testing Hub - Test and verify deep links, Universal Links (AASA), App Links, and URL Schemes for iOS and Android apps. Comprehensive guide for mobile app deep linking, including apple-app-site-association and assetlinks.json validation.">
-    <meta name="keywords" content="deep links, universal links, app links, mobile deep linking, iOS deep links, Android deep links, deep link testing, mobile app deep linking, AASA, apple-app-site-association, assetlinks.json, URL schemes, LSApplicationQueriesSchemes, CFBundleURLTypes, intent filters, AndroidManifest.xml, Info.plist, deep link validation, deep link checker, universal link testing, app link verification">
+    <meta name="keywords" content="deep links, universal links, app links, mobile deep linking, iOS deep links, Android deep links, deep link testing, mobile app deep linking, AASA, apple-app-site-association, assetlinks.json, URL schemes, LSApplicationQueriesSchemes, CFBundleURLTypes, intent filters, AndroidManifest.xml, Info.plist, deep link validation, deep link checker, universal link testing, app link verification, AASA Validator, Universal Link Checker, Apple App Site Association (AASA) Validator, Universal Links / App Links Validator">
     <meta name="author" content="Capgo.app">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Deep Link Testing Hub">
@@ -212,7 +212,8 @@
     <div class="container">
         <header class="header">
             <h1>Deep Link Testing Hub</h1>
-            <h2> By <Capgo.app href="https://capgo.app" style="color: var(--primary); text-decoration: none;">Capgo.app</a></h2>
+            <h2 style="font-size: 1.5rem; margin-top: 0.5rem; color: var(--secondary);">AASA Validator, Universal Link Checker, Apple App Site Association (AASA) Validator, Universal Links / App Links Validator</h2>
+            <h2> By <a href="https://capgo.app/" style="color: var(--primary); text-decoration: none;">Capgo.app</a></h2>
             <nav aria-label="Main navigation">
                 <div style="display: flex; gap: 16px; justify-content: center; margin-top: 16px;">
                     <a href="#communication" class="scroll-button" onclick="document.querySelector('#communication').scrollIntoView({behavior: 'smooth'}); return false;" aria-label="Test Deep Links">
@@ -1024,8 +1025,7 @@ keytool -list -v \
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
-        <data
-            android:scheme="https"
+        <data android:scheme="https"
             android:host="yourdomain.com"
             android:pathPrefix="/app" />
     </intent-filter>
