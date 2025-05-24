@@ -777,7 +777,24 @@ keytool -list -v \
                 <input type="text" id="domain" placeholder="example.com" style="width: 100%; padding: 8px; border: 2px solid var(--primary); border-radius: 4px; margin-bottom: 16px;">
                 <button onclick="checkDeepLinkSetup()" style="background: var(--primary); color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Check Setup</button>
             </div>
-            <div id="checkResults" style="margin-top: 24px;">
+            <div id="checkedUrls" style="margin-top: 24px; display: none;">
+                <h3 style="color: var(--primary); margin-bottom: 16px;">URLs Checked</h3>
+                <div style="background: #f1f5f9; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+                    <div style="margin-bottom: 12px;">
+                        <span style="font-weight: 500; color: var(--secondary);">iOS (AASA):</span>
+                        <div style="margin-top: 4px;">
+                            <a href="#" id="iosCheckedUrl" target="_blank" style="color: var(--primary); text-decoration: none; word-break: break-all;"></a>
+                        </div>
+                    </div>
+                    <div>
+                        <span style="font-weight: 500; color: var(--secondary);">Android (Asset Links):</span>
+                        <div style="margin-top: 4px;">
+                            <a href="#" id="androidCheckedUrl" target="_blank" style="color: var(--primary); text-decoration: none; word-break: break-all;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="checkResults" style="margin-top: 24px; display: none;">
                 <div style="margin-bottom: 24px;">
                     <h3 style="color: var(--primary); margin-bottom: 16px;">iOS Configuration</h3>
                     <div id="iosResults" style="display: none;">
@@ -827,6 +844,22 @@ keytool -list -v \
                     alert('Please enter a domain');
                     return;
                 }
+
+                // Format domain to ensure no protocol prefix
+                const cleanDomain = domain.replace(/^https?:\/\//, '').replace(/\/$/, '');
+                
+                // Show checked URLs
+                const iosUrl = `https://${cleanDomain}/.well-known/apple-app-site-association`;
+                const androidUrl = `https://${cleanDomain}/.well-known/assetlinks.json`;
+                
+                document.getElementById('iosCheckedUrl').href = iosUrl;
+                document.getElementById('iosCheckedUrl').textContent = iosUrl;
+                document.getElementById('androidCheckedUrl').href = androidUrl;
+                document.getElementById('androidCheckedUrl').textContent = androidUrl;
+                document.getElementById('checkedUrls').style.display = 'block';
+
+                const checkResults = document.getElementById('checkResults');
+                checkResults.style.display = 'block';
 
                 // Clear previous results
                 const iosResults = document.getElementById('iosResults');
