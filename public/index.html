@@ -963,9 +963,9 @@ keytool -list -v \
 
                         if (data.ios.aasa.found) {
                             const aasaValidation = validateAASA(data.ios.aasa.content);
-                            const isCacheUpToDate = data.ios.aasa.cdnContent && 
+                            const isCacheUpToDate = data.ios.aasa.cdnContent &&
                                 JSON.stringify(data.ios.aasa.content) === JSON.stringify(data.ios.aasa.cdnContent);
-                            
+
                             const validationResults = document.createElement('div');
                             validationResults.innerHTML = `
                                 <div class="check-item">
@@ -984,8 +984,10 @@ keytool -list -v \
                                     <span class="check-label">Apple CDN Cache:</span>
                                     <span class="check-status ${isCacheUpToDate ? 'success' : 'error'}">${isCacheUpToDate ? 'Up to date' : 'Out of sync'}</span>
                                 </div>
-                                <h4 style="color: var(--primary); margin: 16px 0 8px;">Content</h4>
-                                <pre class="language-json" style="background: #1e1e1e; padding: 16px; border-radius: 4px; margin-bottom: 16px; width: 100%; overflow-x: auto;"><code class="language-json">${JSON.stringify(data.ios.aasa.content, null, 2)}</code></pre>
+                                <details style="margin-top: 16px; border: 1px solid #e2e8f0; border-radius: 4px; padding: 8px;">
+                                    <summary style="cursor: pointer; font-weight: 500; color: var(--primary); padding: 8px;">Show File Content</summary>
+                                    <pre class="language-json" style="background: #1e1e1e; padding: 16px; border-radius: 4px; margin-top: 8px; width: 100%; overflow-x: auto;"><code class="language-json">${JSON.stringify(data.ios.aasa.content, null, 2)}</code></pre>
+                                </details>
                             `;
                             document.getElementById('iosResults').appendChild(validationResults);
                             Prism.highlightAll();
@@ -1003,10 +1005,10 @@ keytool -list -v \
 
                         if (data.android.assetlinks.found) {
                             const assetlinksValidation = validateAssetLinks(data.android.assetlinks.content);
-                            const isCacheUpToDate = data.android.assetlinks.cachedContent && 
-                                data.android.assetlinks.cachedContent.statements && 
+                            const isCacheUpToDate = data.android.assetlinks.cachedContent &&
+                                data.android.assetlinks.cachedContent.statements &&
                                 JSON.stringify(data.android.assetlinks.content) === JSON.stringify(data.android.assetlinks.cachedContent.statements);
-                            
+
                             const validationResults = document.createElement('div');
                             validationResults.innerHTML = `
                                 <div class="check-item">
@@ -1025,8 +1027,10 @@ keytool -list -v \
                                     <span class="check-label">Google Cache:</span>
                                     <span class="check-status ${isCacheUpToDate ? 'success' : 'error'}">${isCacheUpToDate ? 'Up to date' : 'Out of sync'}</span>
                                 </div>
-                                <h4 style="color: var(--primary); margin: 16px 0 8px;">Content</h4>
-                                <pre class="language-json" style="background: #1e1e1e; padding: 16px; border-radius: 4px; margin-bottom: 16px; width: 100%; overflow-x: auto;"><code class="language-json">${JSON.stringify(data.android.assetlinks.content, null, 2)}</code></pre>
+                                <details style="margin-top: 16px; border: 1px solid #e2e8f0; border-radius: 4px; padding: 8px;">
+                                    <summary style="cursor: pointer; font-weight: 500; color: var(--primary); padding: 8px;">Show File Content</summary>
+                                    <pre class="language-json" style="background: #1e1e1e; padding: 16px; border-radius: 4px; margin-top: 8px; width: 100%; overflow-x: auto;"><code class="language-json">${JSON.stringify(data.android.assetlinks.content, null, 2)}</code></pre>
+                                </details>
                             `;
                             document.getElementById('androidResults').appendChild(validationResults);
                             Prism.highlightAll();
@@ -1048,28 +1052,56 @@ keytool -list -v \
             }
 
             function validateAASA(content) {
-                return {
-                    isValidJSON: typeof content === 'object' && content !== null,
-                    hasValidAppID: Array.isArray(content.applinks?.details) && content.applinks.details.length > 0 && 
-                                 content.applinks.details.every(detail => 
-                                    detail.appID && /^[A-Z0-9]{10}\.[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*$/.test(detail.appID)),
-                    hasValidPaths: Array.isArray(content.applinks?.details) && content.applinks.details.length > 0 &&
-                                 content.applinks.details.every(detail => 
-                                    Array.isArray(detail.paths) && detail.paths.length > 0 &&
-                                    detail.paths.every(path => typeof path === 'string' && path.length > 0))
-                };
+                const isValidJSON = typeof content === 'object' && content !== null;
+                const hasDetails = Array.isArray(content.applinks?.details) && content.applinks.details.length > 0;
+
+                if (!hasDetails) {
+                    return { isValidJSON, hasValidAppID: false, hasValidPaths: false };
+                }
+
+                // Check if using modern format (appIDs + components) or legacy format (appID + paths)
+                const hasValidAppID = content.applinks.details.every(detail => {
+                    // Modern format: appIDs (array)
+                    if (Array.isArray(detail.appIDs)) {
+                        return detail.appIDs.length > 0 &&
+                               detail.appIDs.every(id => /^[A-Z0-9]{10}\.[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*$/.test(id));
+                    }
+                    // Legacy format: appID (string)
+                    if (detail.appID) {
+                        return /^[A-Z0-9]{10}\.[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*$/.test(detail.appID);
+                    }
+                    return false;
+                });
+
+                const hasValidPaths = content.applinks.details.every(detail => {
+                    // Modern format: components (array of objects)
+                    if (Array.isArray(detail.components)) {
+                        return detail.components.length > 0;
+                    }
+                    // Legacy format: paths (array of strings)
+                    if (Array.isArray(detail.paths)) {
+                        return detail.paths.length > 0 &&
+                               detail.paths.every(path => typeof path === 'string' && path.length > 0);
+                    }
+                    return false;
+                });
+
+                return { isValidJSON, hasValidAppID, hasValidPaths };
             }
 
             function validateAssetLinks(content) {
                 return {
                     isValidJSON: Array.isArray(content) && content.length > 0,
-                    hasValidPackageName: content.every(item => 
+                    hasValidPackageName: content.every(item =>
                         item.target?.package_name && /^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]$/.test(item.target.package_name)),
-                    hasValidFingerprint: content.every(item => 
-                        Array.isArray(item.target?.sha256_cert_fingerprints) && 
+                    hasValidFingerprint: content.every(item =>
+                        Array.isArray(item.target?.sha256_cert_fingerprints) &&
                         item.target.sha256_cert_fingerprints.length > 0 &&
-                        item.target.sha256_cert_fingerprints.every(fp => 
-                            /^[0-9A-F]{64}$/.test(fp)))
+                        item.target.sha256_cert_fingerprints.every(fp => {
+                            // Support both formats: with colons (3D:7A:12:...) or without (3D7A12...)
+                            const withoutColons = fp.replace(/:/g, '');
+                            return /^[0-9A-F]{64}$/i.test(withoutColons);
+                        }))
                 };
             }
 
