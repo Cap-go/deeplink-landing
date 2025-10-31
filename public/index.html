@@ -902,13 +902,29 @@ keytool -list -v \
                     return;
                 }
 
-                // Format domain to ensure no protocol prefix
-                const cleanDomain = domain.replace(/^https?:\/\//, '').replace(/\/$/, '');
-                
+                // Parse domain properly - extract hostname only
+                let cleanDomain;
+                try {
+                    if (domain.includes('://')) {
+                        // Full URL provided
+                        const url = new URL(domain);
+                        cleanDomain = url.hostname;
+                    } else if (domain.includes('/')) {
+                        // Domain with path but no protocol
+                        cleanDomain = domain.split('/')[0];
+                    } else {
+                        // Just domain
+                        cleanDomain = domain;
+                    }
+                } catch (e) {
+                    // Fallback to simple cleaning
+                    cleanDomain = domain.replace(/^https?:\/\//, '').split('/')[0];
+                }
+
                 // Show checked URLs
                 const iosUrl = `https://${cleanDomain}/.well-known/apple-app-site-association`;
                 const androidUrl = `https://${cleanDomain}/.well-known/assetlinks.json`;
-                
+
                 document.getElementById('iosCheckedUrl').href = iosUrl;
                 document.getElementById('iosCheckedUrl').textContent = iosUrl;
                 document.getElementById('androidCheckedUrl').href = androidUrl;
