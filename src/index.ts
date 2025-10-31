@@ -35,11 +35,16 @@ export default {
 				}
 
 				try {
+					const fetchHeaders = {
+						'User-Agent': 'Mozilla/5.0 (compatible; DeepLinkTester/1.0; +https://aasa-tester.capgo.app)',
+						'Accept': 'application/json, */*',
+					};
+
 					const [aasaResponse, aasaCDNResponse, assetlinksResponse, assetlinksCachedResponse] = await Promise.all([
-						fetch(`https://${domain}/.well-known/apple-app-site-association`),
-						fetch(`https://app-site-association.cdn-apple.com/a/v1/${domain}`),
-						fetch(`https://${domain}/.well-known/assetlinks.json`),
-						fetch(`https://digitalassetlinks.googleapis.com/v1/statements:list?source.web.site=https://${domain}&relation=delegate_permission/common.handle_all_urls`)
+						fetch(`https://${domain}/.well-known/apple-app-site-association`, { headers: fetchHeaders }),
+						fetch(`https://app-site-association.cdn-apple.com/a/v1/${domain}`, { headers: fetchHeaders }),
+						fetch(`https://${domain}/.well-known/assetlinks.json`, { headers: fetchHeaders }),
+						fetch(`https://digitalassetlinks.googleapis.com/v1/statements:list?source.web.site=https://${domain}&relation=delegate_permission/common.handle_all_urls`, { headers: fetchHeaders })
 					]);
 
 					const iosResults = {
